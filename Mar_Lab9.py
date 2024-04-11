@@ -9,6 +9,19 @@ def encode(password):
 
     return encoded_password
 
+## This is Parth Patel's Part of this project
+
+def decode(encoded_password):
+    if not encoded_password.isdigit() or len(encoded_password) != 8:
+        raise ValueError("Encoded password should be an 8-digit string containing only integers.")
+
+    decoded_password = ''
+    for i in range(len(encoded_password)):
+        decoded_digit = str((int(encoded_password[i]) - 3) % 10)  # Shift each digit down by 3 numbers
+        decoded_password += decoded_digit
+
+    return decoded_password
+
 
 
 if __name__ == '__main__':
